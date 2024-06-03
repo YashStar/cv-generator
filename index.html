@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .cv-content {
+      margin-top: 20px;
+    }
+    .cv-section {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>CV Generator</h2>
+  <form id="cvForm">
+    <div class="cv-section">
+      <h3>Personal Details</h3>
+      <input type="text" id="name" placeholder="Name" required>
+      <input type="text" id="email" placeholder="Email" required>
+      <input type="text" id="phone" placeholder="Phone" required>
+    </div>
+    <div class="cv-section">
+      <h3>Education</h3>
+      <input type="text" id="course1" placeholder="Course" required>
+      <input type="text" id="school1" placeholder="School" required>
+      <input type="text" id="grade1" placeholder="Grade" required>
+      <input type="text" id="year1" placeholder="Year" required>
+    </div>
+    <div class="cv-section">
+      <h3>Experience</h3>
+      <input type="text" id="experience" placeholder="Experience">
+    </div>
+    <div class="cv-section">
+      <h3>Skills</h3>
+      <input type="text" id="skills" placeholder="Skills">
+    </div>
+    <div class="cv-section">
+      <h3>Objective</h3>
+      <textarea id="objective" placeholder="Objective"></textarea>
+    </div>
+    <div class="cv-section">
+      <h3>Interests</h3>
+      <input type="text" id="interests" placeholder="Interests">
+    </div>
+    <div class="cv-section">
+      <h3>Projects</h3>
+      <div class="project">
+        <input type="text" id="project1" placeholder="Project Title">
+        <input type="text" id="description1" placeholder="Description">
+      </div>
+      <div class="project">
+        <input type="text" id="project2" placeholder="Project Title">
+        <input type="text" id="description2" placeholder="Description">
+      </div>
+    </div>
+    <div class="cv-section">
+      <h3>Languages</h3>
+      <input type="text" id="languages" placeholder="Languages">
+    </div>
+    <div class="cv-section">
+      <h3>Achievements</h3>
+      <input type="text" id="achievements" placeholder="Achievements">
+    </div>
+    <div class="cv-section">
+      <h3>Activities</h3>
+      <input type="text" id="activities" placeholder="Activities">
+    </div>
+    <input type="submit" value="Generate CV">
+  </form>
+
+  <div class="cv-content" id="cvContent"></div>
+</div>
+
+<script>
+  const form = document.getElementById('cvForm');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const course1 = document.getElementById('course1').value;
+    const school1 = document.getElementById('school1').value;
+    const grade1 = document.getElementById('grade1').value;
+    const year1 = document.getElementById('year1').value;
+    const experience = document.getElementById('experience').value;
+    const skills = document.getElementById('skills').value;
+    const objective = document.getElementById('objective').value;
+    const interests = document.getElementById('interests').value;
+    const project1 = document.getElementById('project1').value;
+    const description1 = document.getElementById('description1').value;
+    const project2 = document.getElementById('project2').value;
+    const description2 = document.getElementById('description2').value;
+    const languages = document.getElementById('languages').value;
+    const achievements = document.getElementById('achievements').value;
+    const activities = document.getElementById('activities').value;
+
+    const cvContent = `
+      <h2>${name}</h2>
+      <p>Email: ${email}</p>
+      <p>Phone: ${phone}</p>
+
+      <h3>Education</h3>
+      <p>${course1} - ${school1}, ${grade1}, ${year1}</p>
+
+      <h3>Experience</h3>
+      <p>${experience}</p>
+
+      <h3>Skills</h3>
+      <p>${skills}</p>
+
+      <h3>Objective</h3>
+      <p>${objective}</p>
+
+      <h3>Interests</h3>
+      <p>${interests}</p>
+
+      <h3>Projects</h3>
+      <div>
+        <h4>${project1}</h4>
+        <p>${description1}</p>
+      </div>
+      <div>
+        <h4>${project2}</h4>
+        <p>${description2}</p>
+      </div>
+
+      <h3>Languages</h3>
+      <p>${languages}</p>
+
+      <h3>Achievements</h3>
+      <p>${achievements}</p>
+
+      <h3>Activities</h3>
+      <p>${activities}</p>
+    `;
+
+    document.getElementById('cvContent').innerHTML = cvContent;
+  });
+</script>
+
+</body>
+</html>
